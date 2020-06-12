@@ -39,14 +39,35 @@ extension String {
         }
     }
     
+    private func parseDateHailMary() -> Date? {
+        let formats = [
+            "yyyy-MM-dd'T'HH:mm:ssZ",
+            "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ",
+            "yyyy-MM-dd",
+            "yyyy-MM-dd HH:mm:ss",
+        ]
+        let dateFormatter = DateFormatter()
+        let trimmed = trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        for format in formats {
+            dateFormatter.dateFormat = format
+            if let date = dateFormatter.date(from: trimmed) {
+                return date
+            }
+        }
+        
+        return nil
+    }
+    
     /// Attempts to convert the textual representation of a date to a
     /// `Date` object according to several common schemes.
     ///
     /// - Returns: A `Date` object, or nil if the conversion failed.
     func toPermissiveDate() -> Date? {
-        return RFC822DateFormatter().date(from: self) ??
-            (RFC3339DateFormatter().date(from: self) ??
-            ISO8601DateFormatter().date(from: self))
+        RFC822DateFormatter().date(from: self) ??
+            RFC3339DateFormatter().date(from: self) ??
+            ISO8601DateFormatter().date(from: self) ??
+            parseDateHailMary()
     }
     
 }
