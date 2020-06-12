@@ -223,6 +223,7 @@ extension RSSFeed {
         .rssChannelItemItunesExplicit,
         .rssChannelItemItunesIsClosedCaptioned,
         .rssChannelItemItunesOrder,
+        .rssChannelItemItunesTitle,
         .rssChannelItemItunesSubtitle,
         .rssChannelItemItunesSummary,
         .rssChannelItemItunesKeywords:
@@ -567,6 +568,11 @@ extension RSSFeed {
             
             if  self.items?.last?.dublinCore == nil {
                 self.items?.last?.dublinCore = DublinCoreNamespace()
+            }
+            
+        case .rdfItemContentEncoded:
+            if  self.items?.last?.content == nil {
+                self.items?.last?.content = ContentNamespace()
             }
             
         default: break

@@ -120,6 +120,7 @@ extension RSSFeed {
         case .rssChannelItunesNewFeedURL:                           self.iTunes?.iTunesNewFeedURL                                   = self.iTunes?.iTunesNewFeedURL?.appending(string) ?? string
         case .rssChannelItunesOwnerName:                            self.iTunes?.iTunesOwner?.name                                  = self.iTunes?.iTunesOwner?.name?.appending(string) ?? string
         case .rssChannelItunesOwnerEmail:                           self.iTunes?.iTunesOwner?.email                                 = self.iTunes?.iTunesOwner?.email?.appending(string) ?? string
+        case .rssChannelItunesTitle:                                self.iTunes?.iTunesTitle                                        = self.iTunes?.iTunesTitle?.appending(string) ?? string
         case .rssChannelItunesSubtitle:                             self.iTunes?.iTunesSubtitle                                     = self.iTunes?.iTunesSubtitle?.appending(string) ?? string
         case .rssChannelItunesSummary:                              self.iTunes?.iTunesSummary                                      = self.iTunes?.iTunesSummary?.appending(string) ?? string
         case .rssChannelItunesKeywords:                             self.iTunes?.iTunesKeywords                                     = self.iTunes?.iTunesKeywords?.appending(string) ?? string
@@ -130,6 +131,7 @@ extension RSSFeed {
         case .rssChannelItemItunesExplicit:                         self.items?.last?.iTunes?.iTunesExplicit                        = self.items?.last?.iTunes?.iTunesExplicit?.appending(string) ?? string
         case .rssChannelItemItunesIsClosedCaptioned:                self.items?.last?.iTunes?.isClosedCaptioned                     = self.items?.last?.iTunes?.isClosedCaptioned?.appending(string) ?? string
         case .rssChannelItemItunesOrder:                            self.items?.last?.iTunes?.iTunesOrder                           = Int(string)
+        case .rssChannelItemItunesTitle:                            self.items?.last?.iTunes?.iTunesTitle                           = self.items?.last?.iTunes?.iTunesTitle?.appending(string) ?? string
         case .rssChannelItemItunesSubtitle:                         self.items?.last?.iTunes?.iTunesSubtitle                        = self.items?.last?.iTunes?.iTunesSubtitle?.appending(string) ?? string
         case .rssChannelItemItunesSummary:                          self.items?.last?.iTunes?.iTunesSummary                         = self.items?.last?.iTunes?.iTunesSummary?.appending(string) ?? string
         case .rssChannelItemItunesKeywords:                         self.items?.last?.iTunes?.iTunesKeywords                        = self.items?.last?.iTunes?.iTunesKeywords?.appending(string) ?? string
@@ -220,6 +222,7 @@ extension RSSFeed {
         case .rdfItemDublinCoreRelation:                            self.items?.last?.dublinCore?.dcRelation                        = self.items?.last?.dublinCore?.dcRelation?.appending(string) ?? string
         case .rdfItemDublinCoreCoverage:                            self.items?.last?.dublinCore?.dcCoverage                        = self.items?.last?.dublinCore?.dcCoverage?.appending(string) ?? string
         case .rdfItemDublinCoreRights:                              self.items?.last?.dublinCore?.dcRights                          = self.items?.last?.dublinCore?.dcRights?.appending(string) ?? string
+        case .rdfItemContentEncoded:                                self.items?.last?.content?.contentEncoded                       = self.items?.last?.content?.contentEncoded?.appending(string) ?? string
         default: break
         }
         
